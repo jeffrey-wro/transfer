@@ -1,10 +1,10 @@
 OBJS	= main.o state.o jeffrey.o
 SOURCE	= main.cpp state.cpp jeffrey.cpp
-OUT		= brain.out
+OUT		= transfer.out
 
 TOBJS	= test.o state.o jeffrey.o
 TSOURCE	= test.cpp state.cpp jeffrey.cpp
-TOUT	= brainTest.out
+TOUT	= transferTest.out
 
 
 HEADER	= 
