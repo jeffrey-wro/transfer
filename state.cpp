@@ -99,7 +99,7 @@ void* pickUpCube(Jeffrey* jeffrey){
 
 void* goToOtherClimate(Jeffrey* jeffrey){
 
-	//jeffrey->rotate180dregees();
+	jeffrey->rotate180dregees();
 
 	return (void *)placeCube;
 }
