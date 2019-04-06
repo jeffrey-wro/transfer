@@ -12,7 +12,8 @@
 
 	#define HAND_OPEN 180
 	#define HAND_CLOSED 0
-
+	#define WEIGHT_FRONT 0
+	#define WEIGHT_BACK 170
 
 class Jeffrey {
 private:
@@ -42,6 +43,9 @@ public:
 	void moveHandToBlock();
 	void openHand();
 	void closeHand();
+	void weightFront();
+	void weightBack();
+	//void rotate180dregees();
 
 };
 

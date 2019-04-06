@@ -3,6 +3,7 @@
 #include "Motor_Controller.h"
 #include "Utils.h"
 #include "Ultrasonic.h"
+#include "vector"
 
 #include "jeffrey.h"
 
@@ -145,6 +146,10 @@ void Jeffrey::moveToDistanceForward(int speed, float distance){
 
     float leftDistance;
     float rightDistance;
+    float lavg = 0;
+	float ravg = 0;
+    std::vector<float> lds;
+    std::vector<float> rds;
 
 	mc.setMotorSpeeds(DC, -speed, speed);
 
@@ -157,10 +162,30 @@ void Jeffrey::moveToDistanceForward(int speed, float distance){
        		rightDistance = ultrasonic.getDistance(Ultrasonic::FRONT_LEFT);
 	    }while(rightDistance < 0);
 
-printf("%f %f\n", leftDistance, rightDistance);
+	    if (lds.size() >= 10 ){
+	    	lds.erase(lds.begin());
+	    	rds.erase(rds.begin());
+	    }
+
+	    lds.push_back(leftDistance);
+		rds.push_back(rightDistance);
+
+		lavg = leftDistance;
+		ravg = rightDistance;
+
+		for(int i=0; i< lds.size(); i++){
+			lavg += lds[i];
+			ravg += rds[i];
+
+		} 
+		lavg/=lds.size()+1;
+		ravg/=rds.size()+1;
+
+
+printf("%f %f\n", lavg, ravg);
 fflush(stdout);
 
-	}while(leftDistance > distance && rightDistance > distance );
+	}while(lavg > distance && ravg > distance );
 
 	mc.setMotorSpeeds(DC, 0, 0);
 }
@@ -215,3 +240,17 @@ void Jeffrey::closeHand(){
 	Utils::waitFor(1);
 
 }
+
+void Jeffrey::weightFront(){
+	mc.setServoPosition(SERVO,SERVO_4,WEIGHT_FRONT);
+	Utils::waitFor(1);
+}
+
+void Jeffrey::weightBack(){
+	mc.setServoPosition(SERVO,SERVO_4,WEIGHT_BACK);
+	Utils::waitFor(1);
+}
+
+/*void Jeffrey::rotate180dregees(){
+	mc.setMotorSpeeds(DC, -speed, speed);
+}*/
