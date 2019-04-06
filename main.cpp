@@ -45,8 +45,8 @@ int main(int argc, char **argv) {
 	    statefunc = (StateFunc)(*statefunc)(&jeffrey);
 
 
-	    if(statefunc == stoppedState)
-	    	break;
+	    //if(statefunc == stoppedState)
+	    	//break;
 
 	}
 

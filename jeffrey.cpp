@@ -252,19 +252,18 @@ void Jeffrey::weightBack(){
 }
 
 void Jeffrey::rotate180dregees(){
+	int speed = 200;
+	int delay = 3;
 
 	int leftCount = 0;
-	int rightCount =0;
+	int rigthCount = 0;
 
-	for(int i=0; i < 2; i++){
-		leftCount +=360;
-		rightCount -=360;
-		mc.setMotorDegrees(DC, 200, leftCount, 200,rightCount);
-		Utils::waitFor(3);
+	for(int i=0; i<2; i++){
 
-		/*rightCount -= 465;
-		mc.setMotorDegrees(DC, 0, leftCount, 200, rightCount);
-		Utils::waitFor(3);*/
-	}
+		rigthCount -= 485;
+		mc.setMotorDegrees(DC, speed, 0, speed, rigthCount);
+
+		Utils::waitFor(delay);
+}
 	
 }

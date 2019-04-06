@@ -92,13 +92,14 @@ void* pickUpCube(Jeffrey* jeffrey){
 	Utils::waitFor(5);
 
 
-
 	return (void *)goToOtherClimate;
 }
 
 
 void* goToOtherClimate(Jeffrey* jeffrey){
 
+	printf("\n\n\n\n\n HERE \n\n\n\n\n");
+	fflush(stdout);
 	jeffrey->rotate180dregees();
 
 	return (void *)placeCube;
