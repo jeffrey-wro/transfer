@@ -89,7 +89,6 @@ void* pickUpCube(Jeffrey* jeffrey){
 	printf("moved back\n");
 	fflush(stdout);
 
-	Utils::waitFor(5);
 
 
 	return (void *)goToOtherClimate;
@@ -121,7 +120,7 @@ void* placeCube(Jeffrey* jeffrey){
 	jeffrey->weightFront();
 
 
-	Utils::waitFor(5);
+	Utils::waitFor(2);
 
 	return (void *)pickUpCube;
 }
