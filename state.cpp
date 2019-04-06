@@ -1,6 +1,6 @@
 #include <stdio.h>
 #include "Motor_Controller.h"
-#include "jeffrey.h"
+#include "Jeffrey.h"
 #include "state.h"
 #include "Utils.h"
 

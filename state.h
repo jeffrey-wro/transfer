@@ -1,7 +1,7 @@
 #ifndef BRAIN_H_
 #define BRAIN_H_
 
-#include "jeffrey.h"
+#include "Jeffrey.h"
 
 typedef void* (*StateFunc)(Jeffrey* jeffrey);
 
