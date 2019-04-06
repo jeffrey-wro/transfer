@@ -123,7 +123,7 @@ void* placeCube(Jeffrey* jeffrey){
 
 	Utils::waitFor(5);
 
-	return (void *)stoppedState;
+	return (void *)pickUpCube;
 }
 
 
