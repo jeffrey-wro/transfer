@@ -99,7 +99,7 @@ void* goToOtherClimate(Jeffrey* jeffrey){
 
 	printf("\n\n\n\n\n HERE \n\n\n\n\n");
 	fflush(stdout);
-	jeffrey->rotate180dregees();
+	jeffrey->rotate90dregees(2);
 
 	return (void *)placeCube;
 }
