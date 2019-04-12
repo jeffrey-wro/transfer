@@ -32,23 +32,6 @@ void* stoppedState(Jeffrey* jeffrey){
 	printf("stoppedState\n");
 	fflush(stdout);
 
-	if(false){
-		return NULL; //Next state
-	}
-
-	if(false){
-		return NULL; //Next state
-	}
-
-	return (void *)stoppedState;
-}
-
-void* servo(Jeffrey* jeffrey){
-
-
-	jeffrey->servo();
-
-
 	return (void *)stoppedState;
 }
 
@@ -59,35 +42,21 @@ void* pickUpCube(Jeffrey* jeffrey){
 
 	jeffrey->weightFront();
 
-	printf("Hand opened\n");
-	fflush(stdout);
+	jeffrey->moveToDistanceForward(100, 12, true);
+	jeffrey->moveToDistanceForward(50, 9, true);
+	jeffrey->moveToDistanceForward(25, 6.5, true);
+	jeffrey->moveToDistanceForward(10, 5.9, true);
+	//jeffrey->moveToDistanceForward(25, 4, true);
 
-	jeffrey->moveToDistanceForward(100, 12);
-	jeffrey->moveToDistanceForward(50, 9);
-	jeffrey->moveToDistanceForward(25, 6.5);
-	jeffrey->moveToDistanceForward(10, 5.9);
-	//jeffrey->moveToDistanceForward(25, 4);
+	//jeffrey->moveHandToBlock();
 
-	printf("first pos\n");
-	fflush(stdout);
-
-	jeffrey->moveHandToBlock();
-
-	printf("centered hand\n");
-	fflush(stdout);
-
-	jeffrey->moveToDistanceForward(5, 3);
+	jeffrey->moveToDistanceForward(5, 3, true);
 	jeffrey->closeHand();
 
-	printf("final pos\n");
-	fflush(stdout);
 
 	jeffrey->weightBack();
 
-	jeffrey->moveToDistanceBackward(100, 20);
-
-	printf("moved back\n");
-	fflush(stdout);
+	jeffrey->moveToDistanceBackward(100, 20, true);
 
 
 
@@ -97,8 +66,6 @@ void* pickUpCube(Jeffrey* jeffrey){
 
 void* goToOtherClimate(Jeffrey* jeffrey){
 
-	printf("\n\n\n\n\n HERE \n\n\n\n\n");
-	fflush(stdout);
 	jeffrey->rotate90dregees(2);
 
 	return (void *)placeCube;
@@ -107,22 +74,27 @@ void* goToOtherClimate(Jeffrey* jeffrey){
 
 void* placeCube(Jeffrey* jeffrey){
 
-	jeffrey->moveToDistanceForward(100, 12);
-	jeffrey->moveToDistanceForward(50, 9);
-	jeffrey->moveToDistanceForward(25, 6.5);
-	jeffrey->moveToDistanceForward(10, 5.9);
-	jeffrey->moveToDistanceForward(5, 3);
+	jeffrey->moveToDistanceForward(100, 12, true);
+	jeffrey->moveToDistanceForward(50, 9, true);
+	jeffrey->moveToDistanceForward(25, 6.5, true);
+	jeffrey->moveToDistanceForward(10, 5.9, true);
+	jeffrey->moveToDistanceForward(5, 3, true);
 
 	jeffrey->openHand();
 
-	jeffrey->moveToDistanceBackward(100, 20);
+	jeffrey->moveToDistanceBackward(100, 20, true);
 
 	jeffrey->weightFront();
 
-
-	Utils::waitFor(2);
 
 	return (void *)pickUpCube;
 }
 
 
+
+void* test(Jeffrey* jeffrey){
+
+	jeffrey->test();
+
+	return (void *)stoppedState;
+}

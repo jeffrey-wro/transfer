@@ -35,16 +35,17 @@ int main(int argc, char **argv) {
 	Jeffrey jeffrey;
 	jeffrey.init(&myrio_session);
 	
+	//start state
+	//pickUpCube
 	StateFunc statefunc = pickUpCube;
 
-
-	//statefunc = (StateFunc)(*statefunc)(&jeffrey);
-
 	while (1) {
+
 
 	    statefunc = (StateFunc)(*statefunc)(&jeffrey);
 
 
+		//end state
 	    if(statefunc == stoppedState)
 	    	break;
 
